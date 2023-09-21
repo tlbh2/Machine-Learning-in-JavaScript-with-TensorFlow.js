@@ -1,0 +1,16 @@
+{
+  "name": "machine-learning-in-javascript-with-tensorflow",
+  "version": "1.0.0",
+  "description": "Add artificial intelligence to websites, Node.js and web apps",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@tensorflow/tfjs": "^4.11.0"
+  }
+}
