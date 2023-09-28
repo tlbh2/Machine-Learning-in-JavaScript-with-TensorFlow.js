@@ -58,6 +58,24 @@
             })
             return model;
         }
+
+        async function trainModel(model, trainingFeatureTensor, trainingLabelTensor){
+
+            //visualize loss with tfjs-vis
+            const {onBatchEnd, onEpochEnd} = tfvis.show.fitCallbacks(
+                { name : "Trainning Performance"},
+                [`lost`]
+            );
+
+            return model.fit(trainingFeatureTensor, trainingLabelTensor, {
+                batchSize: 32, //default number if batch size is 32, higher the batchsize, higher the number of epoch so that the model can has a valid loss number
+                epochs: 20, //number of iterations
+                validationSplit: 0.2,
+                callbacks: {
+                    onEpochEnd, onBatchEnd,
+                }
+            })
+        }
         async function run(){
             //Import from CSV, watch out for the http address in case getting error
             const houseSaleDataSet = tf.data.csv("http://10.151.0.191:8080/kc_house_data.csv");
@@ -112,6 +130,18 @@
             tfvis.show.modelSummary({name: "Model Summary"}, model);
             const layer = model.getLayer(undefined, 0);
             tfvis.show.layer({name: "Layer 1"}, layer);
+            
+            const result = await trainModel(model, trainingFeatureTensor, trainingLabelTensor);
+            console.log(result);
+            const trainingLoss = result.history.loss.pop();
+            console.log(`Training set loss : ${trainingLoss}`);
+            const validationLoss = result.history.val_loss.pop();
+            console.log(`Validation set loss :`);
+
+            const lossTensor = model.evaluate(testingFeatureTensor, testingLabelTensor);
+            const loss = await lossTensor.dataSync();
+            console.log(`Testing set loss : ${loss}`);
+    
         }
         run();
     </script>
