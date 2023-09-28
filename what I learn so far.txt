@@ -1,0 +1,14 @@
+Section 3: TensorFlow.js Core Concepts
+	19. Memory Mnagement in TensorFlow.js
+		- Tensors stored in WebGL, operations happen in WebGL
+		- JS has garbage collection but WebGL backend has no garbage collection
+		- not strictly necessary without WebGL backend
+ 			+ "tf.tidy(functionName)" will free up memory after function executed and result ouput to console
+			+ "tf.memory()" check memory usage
+
+Section 4: Data Preparation with TensorFlow.js
+	23. Linear Regression
+		- search for free dataset on "https://www.kaggle.com/datasets"
+	24. Reading data from CSV
+		- need to load the CSV file through http webserver
+		- "npm install http-server -g" to set up a simple http server

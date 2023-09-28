@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-vis"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1>Heelo</h1>
+
+
+    <script type = "text/javascript">
+        async function run(){
+            const houseSaleDataSet = tf.data.csv("http://192.168.56.1:8080/kc_house_data.csv");
+            const sampleDataset = houseSaleDataSet.take(10);
+            const dataArray = await sampleDataset.toArray();
+            console.log(dataArray);
+        }
+        run();
+    </script>
+    
+</body>
+</html>
