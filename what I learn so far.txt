@@ -12,3 +12,8 @@ Section 4: Data Preparation with TensorFlow.js
 	24. Reading data from CSV
 		- need to load the CSV file through http webserver
 		- "npm install http-server -g" to set up a simple http server
+	28. Splitting into Training and Testing data
+		- shuffle before splitting into sets
+		- avoids patterns in order of data
+		-"tf.util.shuffle(arrayName)" to shuffle the whole array
+		- make sure the array length is even when splitting, otherwise may get error
