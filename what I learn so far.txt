@@ -17,3 +17,14 @@ Section 4: Data Preparation with TensorFlow.js
 		- avoids patterns in order of data
 		-"tf.util.shuffle(arrayName)" to shuffle the whole array
 		- make sure the array length is even when splitting, otherwise may get error
+
+Section 5 : Defining a model
+	35. Compile a model
+		- with normalized data, RMSE less meaningful, so prefer MSE
+
+Section 6 : Training and Testing 
+	41. visualize loss with tfjs-vis
+		- may consider using "adam" as optimizer since it is a modern one that does not require to set a learning rate
+
+Section 7:
+	- when browser stuck with old html version => hard reload the tab by Ctrl + F5, on laptop is Ctrl + fn + F5

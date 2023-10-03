@@ -72,13 +72,14 @@
                 epochs: 20, //number of iterations
                 validationSplit: 0.2,
                 callbacks: {
-                    onEpochEnd, onBatchEnd,
+                    onEpochEnd,
                 }
-            })
+            });
         }
+
         async function run(){
             //Import from CSV, watch out for the http address in case getting error
-            const houseSaleDataSet = tf.data.csv("http://10.151.0.191:8080/kc_house_data.csv");
+            const houseSaleDataSet = tf.data.csv("http://127.0.0.1:8080/kc_house_data.csv");
             /*
             const sampleDataset = houseSaleDataSet.take(10);
             const dataArray = await sampleDataset.toArray();
@@ -136,12 +137,13 @@
             const trainingLoss = result.history.loss.pop();
             console.log(`Training set loss : ${trainingLoss}`);
             const validationLoss = result.history.val_loss.pop();
-            console.log(`Validation set loss :`);
+            console.log(`Validation set loss : ${validationLoss}`);
 
             const lossTensor = model.evaluate(testingFeatureTensor, testingLabelTensor);
             const loss = await lossTensor.dataSync();
             console.log(`Testing set loss : ${loss}`);
-    
+            
+            console.log("con me may");
         }
         run();
     </script>
