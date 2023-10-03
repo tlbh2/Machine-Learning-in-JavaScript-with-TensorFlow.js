@@ -28,3 +28,9 @@ Section 6 : Training and Testing
 
 Section 7:
 	- when browser stuck with old html version => hard reload the tab by Ctrl + F5, on laptop is Ctrl + fn + F5
+
+Section 8:
+	59. Binary Classification model
+		- use "sigmoid" for activation function when doing binary classification
+		- use "adam" for optimizer so that dont have to deal with scg or learning rate
+		- use "binaryCrossentropy" for loss function when "model.compile"
