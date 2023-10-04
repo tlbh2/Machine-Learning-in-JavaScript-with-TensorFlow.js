@@ -34,3 +34,20 @@ Section 8:
 		- use "sigmoid" for activation function when doing binary classification
 		- use "adam" for optimizer so that dont have to deal with scg or learning rate
 		- use "binaryCrossentropy" for loss function when "model.compile"
+	- only have a single output where either : 1 or 0
+
+Section 9: Multi-class classification
+	60. Introduction
+		- for each class, a decimal value between 0 and 1, can be considerd likelihood. 0.8 = 80% likelihood of sitting in class
+	67. Multi-class classification model
+		- on the last layer, set number of "units" to number of class and "activation" function to softmax
+			+ softmax normalizes ouput to sum to 1.0
+			+ sigmoid gives node output between 0 and 1.0
+		- change "loss" function in "model.compile" to "categoricalCrossentropy"
+	68. Visualising multi-class predictions
+		- in the headmap
+			+ full domain: show heat map in a scale between 0.0 and 1.0, work well for fully trained model
+			+ local: show heat map that show the model in training
+		- in case the heatmap and scatterplot does not match up, in term of seperating lines => set "equalizeClassSizes" to true (function plotClasses)
+			
+	
